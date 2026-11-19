@@ -4,12 +4,12 @@ storage:
   dataRoot: data
 category: finance
 name: Portal Gestão
-version: "1.0.0"
+version: "1.0.1"
 tagline: Clientes, subscrições, pagamentos e servidores
 icon: https://raw.githubusercontent.com/ShadowJC95/umbrel-loja-portal/main/portal-gestao/icon.svg
 description: >-
   Portal de gestão: clientes, apps e sites, subscrições, pagamentos, custos e a monitorização das VPS
-  (CPU, memória e disco, lidos por SSH).
+  (CPU, memória e disco).
 
 
   Os dados ficam na pasta da app no Umbrel (base de dados e chave SSH). Para passar de outra instalação,

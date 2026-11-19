@@ -8,10 +8,13 @@ services:
       APP_PORT: 8080
 
   web:
-    # Imagem criada no proprio Umbrel pelo instalar-imagem-umbrel.ps1 (nao existe em nenhum registo).
-    # A versao tem de ser igual a do umbrel-app.yml.
-    image: portal-gestao:1.0.0
-    pull_policy: never
+    # Sem "image:" de proposito: o Umbrel tenta descarregar de um registo todas as imagens com "image:",
+    # e a do portal so existe no proprio Umbrel. Em vez disso, cada arranque da app ("up --build") faz um
+    # build minimo a partir da imagem local portal-gestao:atual (ver o Dockerfile ao lado), criada pelo
+    # instalar-imagem-umbrel.ps1.
+    build:
+      context: ${APP_DATA_DIR}
+      dockerfile: Dockerfile
     user: "1000:1000"   # dono da pasta de dados da app no Umbrel
     init: true
     restart: on-failure
