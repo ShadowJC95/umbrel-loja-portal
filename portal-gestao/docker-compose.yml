@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  # O Umbrel encaminha a porta da app (umbrel-app.yml: port 5080) para o portal, com o login do Umbrel a frente
+  app_proxy:
+    environment:
+      APP_HOST: portal-gestao_web_1   # <id da app>_<servico>_1
+      APP_PORT: 8080
+
+  web:
+    # Imagem criada no proprio Umbrel pelo instalar-imagem-umbrel.ps1 (nao existe em nenhum registo).
+    # A versao tem de ser igual a do umbrel-app.yml.
+    image: portal-gestao:1.0.0
+    pull_policy: never
+    user: "1000:1000"   # dono da pasta de dados da app no Umbrel
+    init: true
+    restart: on-failure
+    stop_grace_period: 30s
+    volumes:
+      - ${APP_DATA_DIR}/data:/data   # base de dados + chave SSH + known_hosts
