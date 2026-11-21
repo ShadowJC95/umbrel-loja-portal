@@ -1,0 +1,20 @@
+services:
+  # O Umbrel encaminha a porta da app (umbrel-app.yml: port 5080) para o portal, com o login do Umbrel a frente
+  app_proxy:
+    environment:
+      APP_HOST: portal-gestao_web_1   # <id da app>_<servico>_1
+      APP_PORT: 8080
+
+  web:
+    # Sem "image:" de proposito: o Umbrel tenta descarregar de um registo todas as imagens com "image:".
+    # O codigo do portal nao esta no GitHub: o instalar-imagem-umbrel.ps1 copia a app publicada (com o
+    # Dockerfile) para data/portal-app, e cada arranque da app ("up --build") constroi a imagem a partir dai,
+    # sobre a imagem publica da Microsoft. Assim nada depende de imagens locais que o Umbrel apaga ao reiniciar.
+    build:
+      context: ${APP_DATA_DIR}/data/portal-app
+    user: "1000:1000"   # dono da pasta de dados da app no Umbrel
+    init: true
+    restart: on-failure
+    stop_grace_period: 30s
+    volumes:
+      - ${APP_DATA_DIR}/data:/data   # base de dados + chave SSH + known_hosts (+ portal-app, o codigo)

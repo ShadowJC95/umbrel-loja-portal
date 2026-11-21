@@ -1,0 +1,2 @@
+Pasta de dados do Portal Cardosoft no Umbrel (base de dados, chave SSH e, em portal-app, o codigo do portal).
+Tem de existir no repositorio para o Umbrel a criar com o dono certo.
