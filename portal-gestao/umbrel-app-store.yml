@@ -1,2 +1,0 @@
-id: "portal" # prefixo de todas as apps desta loja (so letras minusculas e "-"); nao mudar: faz parte do id da app
-name: "Cardosoft" # aparece no Umbrel como "Cardosoft App Store"
