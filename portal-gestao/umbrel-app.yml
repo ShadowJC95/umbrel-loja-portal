@@ -3,8 +3,8 @@ id: portal-gestao
 storage:
   dataRoot: data
 category: finance
-name: Portal Gestão
-version: "1.0.1"
+name: Portal Cardosoft
+version: "1.0.2"
 tagline: Clientes, subscrições, pagamentos e servidores
 icon: https://raw.githubusercontent.com/ShadowJC95/umbrel-loja-portal/main/portal-gestao/icon.svg
 description: >-
@@ -14,7 +14,9 @@ description: >-
 
   Os dados ficam na pasta da app no Umbrel (base de dados e chave SSH). Para passar de outra instalação,
   usa "Cópia de segurança > Restaurar" no portal.
-releaseNotes: ""
+releaseNotes: >-
+  O portal passa a chamar-se Portal Cardosoft. A app constroi-se a partir dos ficheiros em data/portal-app
+  (copiados pelo instalar-imagem-umbrel.ps1), para deixar de falhar quando o Umbrel reinicia.
 developer: Pessoal
 website: ""
 dependencies: []
